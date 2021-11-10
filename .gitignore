@@ -17,3 +17,6 @@
 !/log/.keep
 /tmp
 /nbproject
+
+bin/*
+/.github/workflows/*
