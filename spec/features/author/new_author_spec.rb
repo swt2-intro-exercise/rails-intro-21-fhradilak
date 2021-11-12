@@ -5,4 +5,12 @@ require 'rails_helper'
      # https://guides.rubyonrails.org/routing.html#path-and-url-helpers
      visit new_author_path
    end
+
+   it "should have an author name text input field" do
+     visit new_author_path
+     expect(page).to have_field('author[first_name]')
+     expect(page).to_have_field('author[last_name]')
+     expect(page).to_have_field('author[homepage]')
+
+   end
  end
