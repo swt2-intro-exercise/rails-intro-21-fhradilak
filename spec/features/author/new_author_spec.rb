@@ -27,5 +27,21 @@ require 'rails_helper'
      find('input[type="submit"]').click
 
      expect(Author.exists?(first_name: first_name, last_name: last_name, homepage: homepage)).to be_truthy
+
    end
+     it "should pass the check that an authors last name is not an empty string" do
+       visit new_author_path
+       @author = Author.new(first_name: 'Alan', homepage: 'Alan@Alan.com')
+       expect(@author).to_not be_valid
+     end
+
+     it "should show an error message when non valid data is entered" do
+       visit new_author_path
+       @author = Author.new(first_name: 'Alan', homepage: 'Alan@Alan.com')
+       page.fill_in 'author[first_name]', with: @author.first_name
+       page.fill_in 'author[homepage]', with: @author.homepage
+       find('input[type="submit"]').click
+
+       expect(page).to have_text 'error'
+     end
  end
