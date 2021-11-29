@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Author Show Index Pape", type: :feature do
+describe "Author Show Index Page", type: :feature do
   it "should display a table with the headings Name and Homepage, listing the full name of authors and links to homepages. Should contain a link to add new authors" do
     @author_details = FactoryBot.create :author
 
