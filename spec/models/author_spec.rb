@@ -8,4 +8,8 @@ describe "Author Model", type: :model do
     expect(author.homepage).to eq("Herbertson.com")
     expect(author.name).to eq("Herbert Herbertson")
   end
+
+  it "should have an empty list with associated paper" do
+    expect(author.papers).to be_empty
+  end
 end
